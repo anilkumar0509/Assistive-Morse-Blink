@@ -1,0 +1,37 @@
+:root{--bg:#F2F5F7;--ink:#14232E;--mute:#5B6B76;--line:#CBD5DB;--panel:#fff;--teal:#0F7B8A;--amber:#E0A100;--red:#C0392B}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 18px/1.5 "Atkinson Hyperlegible",system-ui,sans-serif}
+header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 28px;border-bottom:1px solid var(--line);background:var(--panel)}
+h1{margin:0;font-size:1.4rem}
+.status{margin:0;padding:6px 16px;border-radius:999px;font-weight:700;background:var(--line)}
+.status.active{background:var(--teal);color:#fff}.status.idle{background:var(--amber)}.status.calibrating{background:var(--ink);color:#fff}.status.error{background:var(--red);color:#fff}
+main{display:grid;grid-template-columns:minmax(260px,360px) 1fr;gap:24px;padding:24px 28px;max-width:1200px;margin:auto}
+.cam video{width:100%;aspect-ratio:4/3;object-fit:cover;background:#000;border-radius:10px;transform:scaleX(-1)}
+.meter{position:relative;height:10px;background:var(--line);border-radius:6px;margin-top:10px}
+.meter i{display:block;height:100%;width:0;background:var(--teal);border-radius:6px}
+.meter b{position:absolute;top:-4px;width:2px;height:18px;background:var(--red)}
+.small{font-size:.85rem;color:var(--mute);margin:6px 0}
+.row{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:12px 0}
+button{font:inherit;font-weight:700;padding:8px 16px;border:2px solid var(--ink);border-radius:8px;background:var(--panel);color:var(--ink);cursor:pointer}
+button:hover{background:var(--ink);color:#fff}
+:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+.seq{display:flex;gap:14px;align-items:center;min-height:64px;padding:12px 18px;background:var(--panel);border:1px solid var(--line);border-radius:10px}
+.seq .dot{width:22px;height:22px;border-radius:50%;background:var(--teal)}
+.seq .dash{width:64px;height:22px;border-radius:12px;background:var(--teal)}
+.seq .empty{color:var(--mute)}
+.gap{position:relative;height:12px;margin-top:14px;background:var(--line);border-radius:6px}
+.gap i{display:block;height:100%;width:0;background:var(--amber);border-radius:6px}
+.gap b{position:absolute;top:-4px;width:3px;height:20px;background:var(--ink)}
+.gap .m1{left:40%}.gap .m2{right:0}
+.gaplabel{display:flex;justify-content:space-between}
+.text{min-height:150px;margin-top:14px;padding:18px 22px;background:var(--panel);border:1px solid var(--line);border-radius:10px;font-size:2.6rem;line-height:1.25;letter-spacing:.04em;word-break:break-word}
+.text .cursor{display:inline-block;width:3px;height:.9em;background:var(--teal);vertical-align:-.08em;margin-left:2px}
+.guide{margin:8px 0 0;padding-left:20px;color:var(--mute)}
+.guide b{color:var(--ink)}
+.chart{grid-column:1/-1}
+#chart{display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:8px}
+#chart div{padding:6px 10px;background:var(--panel);border:1px solid var(--line);border-radius:8px;display:flex;justify-content:space-between;gap:8px}
+#chart div.hit{border-color:var(--teal);box-shadow:inset 0 0 0 1px var(--teal)}
+#chart div.dim{opacity:.35}
+#chart span{color:var(--mute);letter-spacing:.1em}
+@media(max-width:760px){main{grid-template-columns:1fr;padding:16px}.text{font-size:2rem}}

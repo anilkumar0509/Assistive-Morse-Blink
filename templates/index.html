@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BlinkMorse</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header>
+  <h1>BlinkMorse</h1>
+  <p id="status" class="status" role="status" aria-live="polite">Starting camera</p>
+</header>
+<main>
+  <section class="cam" aria-label="Camera">
+    <video id="video" autoplay playsinline muted></video>
+    <div class="meter" title="Eye openness"><i id="earBar"></i><b id="earMark"></b></div>
+    <p id="earText" class="small">Eye openness</p>
+    <div class="row">
+      <button id="calibrate">Recalibrate</button>
+      <label><input type="checkbox" id="collect"> Record samples</label>
+    </div>
+    <p class="small" id="hint"></p>
+  </section>
+
+  <section class="out" aria-label="Message">
+    <div id="seq" class="seq" aria-label="Current Morse sequence"></div>
+    <div class="gap"><i id="gapBar"></i><b class="m1"></b><b class="m2"></b></div>
+    <p class="small gaplabel"><span>Letter ends</span><span>Word ends</span></p>
+    <div id="text" class="text" aria-live="polite"></div>
+    <div class="row">
+      <button id="speak">Speak message</button>
+      <button id="clear">Clear</button>
+      <label><input type="checkbox" id="voice" checked> Speak each word</label>
+    </div>
+    <ul class="guide">
+      <li><b>Blink twice quickly</b> to start</li>
+      <li><b>Short blink</b> is a dot, <b>long blink</b> is a dash</li>
+      <li><b>Pause 1.2 s</b> to finish a letter, <b>3 s</b> to finish a word</li>
+      <li><b>Very long blink</b> deletes, <b>close eyes 2.5 s</b> to pause</li>
+    </ul>
+  </section>
+
+  <section class="chart" aria-label="Morse chart"><div id="chart"></div></section>
+</main>
+<script type="module" src="/static/app.js"></script>
+</body>
+</html>
